@@ -1,0 +1,9 @@
+<form method="POST" action="{{ url_for('home') }}">
+    <select name="options">
+      {% for option in options %}
+      <option value="{{ option }}">{{ option }}</option>
+      {% endfor %}
+    </select>
+    <input type="submit" value="Submit">
+  </form>
+  

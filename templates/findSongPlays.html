@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Song Plays</title>
+    </head>
+    <body>
+        <h1>Song Plays</h1>
+        <form action="{{url_for('findSongPlays')}}" method="POST">
+            <label for="song_name">Enter a song name:</label>
+            <input type="text" id="song_name" name="song_name"><br>
+            <input type="submit" value="Search">
+        </form>
+        <br>
+        <table>
+            <tr>
+                <th>Song</th>
+                <th>Artist</th>
+                <th>Plays</th>
+            </tr>
+            {% for song, artist, count in topSongs %}
+            <tr>
+                <td>{{ song }}</td>
+                <td>{{ artist }}</td>
+                <td>{{ count }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <!-- add a button to return to the homepage -->
+        <form action="{{url_for('home')}}" method="get">
+            <input type="submit" value="Return to Homepage">
+        </form>
+    </body>
+</html>
